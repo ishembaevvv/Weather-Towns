@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Broken+Fax&display=swap');
+
+@mixin border_color($col, $bg, $textCol) {
+    border: 3px solid $col;
+    background-color: $bg;
+    color: $textCol;
+}
+
+%trans {
+    transition: .3s;
+}
+%radius {
+    border-radius: 5px;
+}
+
+$col1: #fff;
+$col2: #000;
+$hei: 40px;
+$hei2: 150px;
+
+* {
+    font-family: 'Architects Daughter', cursive;
+    color-scheme: dark;
+}
+
+.App {
+    display: flex;
+    justify-content: center;
+}
+
+.inp {
+    border: none;
+    background: transparent;
+    height: $hei;
+    @include border_color($col1, transparent, $col1);
+    @extend %radius;
+}
+
+.btn {
+    border: none;
+    height: $hei;
+    @extend %radius;
+    @include border_color($col1, $col2, $col1);
+    @extend %trans;
+
+    &:hover {
+        @include border_color($col2, $col1, $col2);
+        @extend %trans;
+    }
+}
+
+.weather-card {
+    margin-top: 30px;
+    width: 300px;
+    height: $hei2;
+    @include border_color(green, $col1, $col2);
+    @extend %radius;
+}
+
+.error {
+    @include border_color(none, red, $col1);
+    width: 150px;
+    height: $hei;
+    text-align: center;
+    @extend %radius;
+}
